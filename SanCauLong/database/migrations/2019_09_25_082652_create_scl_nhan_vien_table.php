@@ -16,8 +16,10 @@ class CreateSclNhanVienTable extends Migration
         Schema::create('scl_nhan_vien', function (Blueprint $table) {
             $table->increments('id');
             $table->string('NV_ten',200);
-            $table->text('NV_diachi');
+            $table->string('NV_diachi',200);
             $table->text('NV_hinhanh');
+            $table->string('NV_gioitinh',4);
+            $table->string('NV_sodienthoai',50);
         });
     }
 

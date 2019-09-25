@@ -15,7 +15,7 @@ class CreateSclNgayTable extends Migration
     {
         Schema::create('scl_ngay', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('N_Ngay');
+            $table->date('N_Ngay');
         });
     }
 

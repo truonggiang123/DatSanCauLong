@@ -16,9 +16,9 @@ class CreateSclLoaiSanTable extends Migration
         Schema::create('scl_loai_san', function (Blueprint $table) {
             $table->increments('id');
             $table->string('LS_ten',200);
-            $table->text('LS_chieudai')->nullable();
-            $table->text('LS_chieurong')->nullable();
-            $table->text('LS_duongcheo')->nullable();
+            $table->float('LS_chieudai', 8, 2);
+            $table->float('LS_chieurong', 8, 2);
+            $table->float('LS_duongcheo', 8, 2);
             $table->text('LS_mota')->nullable();
         });
     }

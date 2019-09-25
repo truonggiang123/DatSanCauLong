@@ -16,9 +16,9 @@ class CreateSclSanTable extends Migration
         Schema::create('scl_san', function (Blueprint $table) {
             $table->increments('id');
             $table->string('S_ten',200);
-            $table->text('S_tinhtrangsan')->nullable();
+            $table->tinyInteger('S_tinhtrangsan')->nullable();
             $table->text('hinhanhsan')->nullable();
-            $table->text('mota')->nullable();
+            $table->string('mota',255)->nullable();
              
             $table->integer('ma_loai_san')->unsigned();
             $table->foreign('ma_loai_san')->references('id')->on('scl_loai_san');
