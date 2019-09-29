@@ -11,50 +11,48 @@
 </head>
 
 <body>
-    <div class="container-fluid">
 
+    <!-- Thanh tiêu đề -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+            <img src="bird.jpg" alt="logo" style="width:40px;">
+        </a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 3</a>
+            </li>
+        </ul>
+        <!-- chức năng tìm kiếm trên nav -->
+
+        <form class="form-inline  ml-auto" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <div class="container-fluid" style="margin-top:59px;">
         <div class="row">
-            <div class="col-sm-3">
-        
+            <!-- Sidebar -->
+            <div class="col-md-3 bg-primary">
+                <p> 
+                    say ládihiuw
+                </p>
             </div>
-            <div class="col-sm-9">
-              fdasfjas;f
-            </div>
-
+            <!-- End sidebar -->
+            <!-- Content -->
+            <main role="main" class="col-md-9 ml-sm-auto px-4">
+                 @yield('content')
+            </main>
+            <!-- End content -->
         </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                 
-            </div>
-            <div class="col-sm-9">
-                    @yield('content')
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-                &#64 giang
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <script src="{{ asset('vendor/Bootstrap/js/bootstrap.min.js') }}"></script>
