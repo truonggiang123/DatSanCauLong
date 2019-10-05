@@ -11,8 +11,4 @@ class NhanVien extends Model
     protected $guarded       = ["id"];
     protected $primaryKey    = "id";
 
-
-    public function datsan(){
-             return $this->belongsTo('App\DatSan','nhan_vien_quan_li','id');
-    }
 }

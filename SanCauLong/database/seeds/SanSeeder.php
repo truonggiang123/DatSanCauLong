@@ -21,7 +21,7 @@ class SanSeeder extends Seeder
         $name=[];
         for($j=1; $j<= 25; $j++)
         {
-            $name[$j]="Sân Số".$j;
+            $name[$j]="Sân Số ".$j;
         }
          
         for ($i = 1; $i <= 30; $i++) {

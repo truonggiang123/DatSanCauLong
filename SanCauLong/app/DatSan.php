@@ -12,12 +12,12 @@ class DatSan extends Model
     protected $primaryKey    = "id";
 
 
-    public function san()
+    public function chitietdatsan()
     {
-        return $this->hasMany('App\San', 'ma_san', 'id');
+        return $this->hasMany('App\ChitietDS', 'dat_san_id', 'id');
     }
     public function nhanvien()
     {
-        return $this->hasOne('App\NhanVien', 'nhan_vien_quan_li', 'id');
+        return $this->belongsTo('App\NhanVien', 'nhan_vien_quan_li', 'id');
     }
 }

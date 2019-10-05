@@ -11,6 +11,10 @@ class San extends Model
     protected $guarded       = ["id"];
     protected $primaryKey    = "id";
 
+    public function chitietds()
+    {
+        return $this->hasMany('App\ChitietDS', 'san_id', 'id');
+    }
     public function khunggio()
     {
         return $this->belongsTo('App\KhungGio', 'ma_KG', 'id');
@@ -22,8 +26,5 @@ class San extends Model
     }
 
 
-    public function datsan()
-    {
-        return $this->belongsTo('App\DatSan', 'ma_san', 'id');
-    }
+ 
 }

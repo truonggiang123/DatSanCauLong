@@ -19,9 +19,6 @@ class CreateSclDatSanTable extends Migration
             $table->string('DS_ten_khach_hang',200);
             $table->text('DS_SDT');
  
-            $table->integer('ma_san')->unsigned();
-            $table->foreign('ma_san')->references('id')->on('scl_san');   
-            
             $table->integer('nhan_vien_quan_li')->unsigned();
             $table->foreign('nhan_vien_quan_li')->references('id')->on('scl_nhan_vien');
 
