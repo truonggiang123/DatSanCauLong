@@ -27,7 +27,7 @@ class NgayController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend/Ngay/create');
     }
 
     /**
@@ -38,7 +38,10 @@ class NgayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ngay = new Ngay();
+        $ngay->N_Ngay = $request->N_Ngay;
+        $ngay->save();
+        return redirect()->route('backend.Ngay.index');
     }
 
     /**

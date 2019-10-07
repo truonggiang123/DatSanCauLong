@@ -26,8 +26,12 @@ Route::get('/home', function () {
 });
 
 Route::get('admin/ngay','Backend\NgayController@index')->name('backend.Ngay.index');
+Route::get('admin/ngay/create','Backend\NgayController@create')->name('backend.Ngay.create');
+Route::post('admin/ngay/store','Backend\NgayController@store')->name('backend.Ngay.store');
+
 Route::get('admin/khunggio','Backend\KhungGioController@index')->name('backend.KhungGio.index');
 Route::get('admin/loaisan','Backend\LoaiSanController@index')->name('backend.LoaiSan.index');
 Route::get('admin/san','Backend\SanController@index')->name('backend.San.index');
 Route::get('admin/datsan','Backend\DatSanController@index')->name('backend.DatSan.index');
 Route::get('admin/nhanvien','Backend\NhanVienController@index')->name('backend.NhanVien.index');
+

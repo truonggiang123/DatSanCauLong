@@ -10,7 +10,7 @@ class Ngay extends Model
     protected $fillable      = ["N_Ngay"];
     protected $guarded       = ["id"];
     protected $primaryKey    = "id";
-
+    public $timestamps = false;
 
     public function khunggio(){
         return $this->hasMany('App\KhungGio', 'mangay_id', 'id');
