@@ -27,7 +27,7 @@ class LoaiSanController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend/LoaiSan/create');
     }
 
     /**
@@ -38,7 +38,15 @@ class LoaiSanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $loaisan = new LoaiSan();
+        $loaisan->LS_ten        = $request->LS_ten;
+        $loaisan->LS_chieudai   = $request->LS_chieudai;
+        $loaisan->LS_chieurong  = $request->LS_chieurong;
+        $loaisan->LS_duongcheo  = $request->LS_duongcheo;
+        $loaisan->LS_mota       = $request->LS_mota;
+        $loaisan->save();
+        return redirect()->route('backend.LoaiSan.index');
+
     }
 
     /**

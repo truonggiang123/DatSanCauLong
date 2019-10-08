@@ -27,7 +27,7 @@ class NhanVienController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend/Nhanvien/create');
     }
 
     /**
@@ -38,7 +38,23 @@ class NhanVienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nhanvien = new NhanVien();
+        $nhanvien->NV_ten          = $request->NV_ten;
+        $nhanvien->NV_diachi       = $request->NV_diachi;
+        $nhanvien->NV_gioitinh     = $request->NV_gioitinh;
+        $nhanvien->NV_sodienthoai  = $request->NV_sodienthoai;
+        if($request->hasfile('NV_hinhanh'))
+        {   
+            // lấy file từ người dùng nhập vào
+            $file = $request->NV_hinhanh;
+            // gán tên file vào cơ sở dử liệu
+            $nhanvien->NV_hinhanh = $file->getClientOriginalName();
+            // lưu file vào thư mục public/storage/
+            $fileSaved = $file->storeAs('public/uploads', $nhanvien->NV_hinhanh);
+        }
+        $nhanvien->save();
+        return redirect()->route('backend.NhanVien.index');
+
     }
 
     /**

@@ -8,7 +8,7 @@ Danh mục Nhân Viên
 @endsection
 
 @section('content')
-<a class="btn btn-info" href="#">Thêm Nhân Viên</a>
+<a class="btn btn-info" href="{{ route('backend.NhanVien.create') }}">Thêm Nhân Viên</a>
 <table class="table table-hover table-responsive">
     <thead>
         <tr>
@@ -25,16 +25,16 @@ Danh mục Nhân Viên
         @foreach($NhanVien as $nhanVienChucNang)
         <tr>
 
-            <td>{{$nhanVienChucNang->id}}</td>
-            <td>{{$nhanVienChucNang->NV_ten}}</td>
-            <td>{{$nhanVienChucNang->NV_diachi}}</td>
-            <td>{{$nhanVienChucNang->NV_gioitinh}}</td>
-            <td>{{$nhanVienChucNang->NV_sodienthoai}}</td>
-            <td></td>
-            <td class="d-flex justify-content-left">
-                <a class="btn btn-info" href="#">Sửa</a>
+            <td style="vertical-align:middle;">{{$nhanVienChucNang->id}}</td>
+            <td style="vertical-align:middle;">{{$nhanVienChucNang->NV_ten}}</td>
+            <td style="vertical-align:middle;">{{$nhanVienChucNang->NV_diachi}}</td>
+            <td style="vertical-align:middle;">{{$nhanVienChucNang->NV_gioitinh}}</td>
+            <td style="vertical-align:middle;">{{$nhanVienChucNang->NV_sodienthoai}}</td>
+            <td style="vertical-align:middle;"><img class="img-fluid" style="with:100px;height:100px;" src="{{ asset('storage/uploads/'.$nhanVienChucNang->NV_hinhanh)}}" alt="Hình ảnh nhân viên"> </td>
+            <td   class="d-flex justify-content-center">
+                <a style="margin-top: 35px;" class="btn btn-info" href="#">Sửa</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
-                    <input class="btn btn-info" type="submit" value="Xóa" />
+                    <input style="margin-top: 35px;" class="btn btn-info" type="submit" value="Xóa" />
                 </form>
             </td>
 

@@ -10,7 +10,7 @@ class KhungGio extends Model
     protected $fillable   = ['kg_gioBD', 'kg_gioKT', 'mangay_id'];
     protected $guarded    = ["id"];
     protected $primaryKey = "id";
-
+    public $timestamps =false;
 
     public function ngay(){
         return $this->belongsTo('App\Ngay', 'mangay_id', 'id');

@@ -8,7 +8,7 @@ Danh mục Sân
 @endsection
 
 @section('content')
-<a class="btn btn-info" href="#">Thêm Sân</a>
+<a class="btn btn-info" href="{{ route('backend.San.create') }}">Thêm Sân</a>
 <table class="table table-hover table-responsive">
     <thead>
         <tr>
@@ -26,23 +26,25 @@ Danh mục Sân
         @foreach($San as $SanChucNang)
         <tr>
 
-            <td>{{$SanChucNang->id}}</td>
-            <td>{{$SanChucNang->S_ten}}</td>
-            <td>
+            <td style="vertical-align:middle;">{{$SanChucNang->id}}</td>
+            <td style="vertical-align:middle;">{{$SanChucNang->S_ten}}</td>
+            <td style="vertical-align:middle;">
                 @if($SanChucNang->S_tinhtrangsan==1)
                 Còn Trống
                 @else
                 Đã được đặt
                 @endif
             </td>
-            <td>{{$SanChucNang->mota}}</td>
-            <td>{{$SanChucNang->loaisan->LS_ten}}</td>
-            <td>{{$SanChucNang->khunggio->kg_gioBD." ".$SanChucNang->khunggio->kg_gioKT." ".$SanChucNang->khunggio->ngay->N_Ngay}}</td>
-            <td></td>
+            <td style="vertical-align:middle;">{{$SanChucNang->mota}}</td>
+            <td style="vertical-align:middle;">{{$SanChucNang->loaisan->LS_ten}}</td>
+            <td style="vertical-align:middle;">{{$SanChucNang->khunggio->kg_gioBD." ".$SanChucNang->khunggio->kg_gioKT." ".$SanChucNang->khunggio->ngay->N_Ngay}}</td>
+            <td style="vertical-align:middle;">
+                <img style="width:100px;height:100px" src="{{ asset('storage/uploads/'.$SanChucNang->hinhanhsan) }}" alt="Hình ảnh sân">
+            </td>
             <td class="d-flex justify-content-left">
-                <a class="btn btn-info" href="#">Sửa</a>
+                <a style="margin-top:35px;" class="btn btn-info" href="#">Sửa</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
-                    <input class="btn btn-info" type="submit" value="Xóa" />
+                    <input style="margin-top:35px;" class="btn btn-info" type="submit" value="Xóa" />
                 </form>
             </td>
 

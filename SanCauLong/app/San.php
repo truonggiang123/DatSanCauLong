@@ -10,7 +10,7 @@ class San extends Model
     protected $fillable      = ['S_ten', 'S_tinhtrangsan', 'hinhanhsan', 'mota', 'ma_loai_san', 'ma_KG'];
     protected $guarded       = ["id"];
     protected $primaryKey    = "id";
-
+    public $timestamps =false;
     public function chitietds()
     {
         return $this->hasMany('App\ChitietDS', 'san_id', 'id');

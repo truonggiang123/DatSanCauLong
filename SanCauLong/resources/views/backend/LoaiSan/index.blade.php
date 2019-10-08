@@ -8,7 +8,7 @@ Danh mục Loại Sân
 @endsection
 
 @section('content')
-<a class="btn btn-info" href="#">Thêm Loại Sân</a>
+<a class="btn btn-info" href="{{ route('backend.LoaiSan.create') }}">Thêm Loại Sân</a>
 <table class="table table-hover">
     <thead>
         <tr>

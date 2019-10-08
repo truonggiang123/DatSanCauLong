@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\KhungGio;
+use App\LoaiSan;
 use App\San;
 use Illuminate\Http\Request;
 
@@ -27,7 +29,11 @@ class SanController extends Controller
      */
     public function create()
     {
-        //
+        $khunggio = KhungGio::all();
+        $loaisan  = LoaiSan::all();
+        return view('backend/San/create')
+        ->with('KG',$khunggio)
+        ->with('LoaiSan',$loaisan);
     }
 
     /**
@@ -38,7 +44,22 @@ class SanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $san = new San();
+        $san->S_ten             = $request->S_ten;
+        $san->S_tinhtrangsan    = $request->S_tinhtrangsan;
+        $san->mota              = $request->mota;
+        $san->ma_loai_san       = $request->ma_loai_san;
+        $san->ma_KG             = $request->ma_KG;
+        if($request->hasFile('hinhanhsan'))
+        {
+            $file = $request->hinhanhsan;
+            $san->hinhanhsan = $file->getClientOriginalName();
+            $fileSaved = $file->storeAs('public/uploads', $san->hinhanhsan);
+
+        }
+        $san->save();
+        return redirect()->route('backend.San.index');
+
     }
 
     /**

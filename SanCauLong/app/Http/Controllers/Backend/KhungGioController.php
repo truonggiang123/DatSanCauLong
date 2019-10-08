@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\KhungGio;
+use App\Ngay;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,9 @@ class KhungGioController extends Controller
      */
     public function create()
     {
-        //
+        $ngay = Ngay::all();
+        return view('backend/KhungGio/create')
+        ->with('Ngay',$ngay);
     }
 
     /**
@@ -39,7 +42,13 @@ class KhungGioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $khunggio = new KhungGio();
+        $khunggio->kg_gioBD  = $request->kg_gioBD;
+        $khunggio->kg_gioKT  = $request->kg_gioKT;
+        $khunggio->mangay_id = $request->mangay_id;
+        $khunggio->save();
+        return redirect()->route('backend.KhungGio.index');
+
     }
 
     /**

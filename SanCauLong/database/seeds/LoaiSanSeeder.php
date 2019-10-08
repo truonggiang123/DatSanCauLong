@@ -14,19 +14,23 @@ class LoaiSanSeeder extends Seeder
         $faker = Faker\Factory::create('vi_VN'); //location ISO
         $list = [];
         // $today = new DateTime('2019-01-01 08:00:00');
-        $tenloaisan=["Sân đôi","Sân Đơn"];
-        $chieurongloaisan=[6.1,5.18];
-        $duongcheoloaisan=[14.7, 14.3];
-        for ($i = 1; $i <= 30; $i++) {
             array_push($list, [
-                'id'              => $i,
-                'LS_ten'          => $faker->randomElement($tenloaisan),
+                'id'              => 1,
+                'LS_ten'          => 'Sân Đơn',
                 'LS_chieudai'     => 13.4,
-                'LS_chieurong'    => $faker->randomElement($chieurongloaisan),
-                'LS_duongcheo'    => $faker->randomElement($duongcheoloaisan),
+                'LS_chieurong'    => 5.18,
+                'LS_duongcheo'    => 14.7,
                 'LS_mota'         => $faker->text(30),
             ]);
-        }
+            array_push($list, [
+                'id'              => 2,
+                'LS_ten'          => 'Sân Đôi',
+                'LS_chieudai'     => 13.4,
+                'LS_chieurong'    => 6.1,
+                'LS_duongcheo'    => 14.3,
+                'LS_mota'         => $faker->text(30),
+            ]);
+           
         DB::table('scl_loai_san')->insert($list);
     }
 }

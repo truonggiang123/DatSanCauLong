@@ -8,7 +8,7 @@ Danh mục Khung Giờ
 @endsection
 
 @section('content')
-<a class="btn btn-info" href="#">Thêm Khung Giờ</a>
+<a class="btn btn-info" href="{{  route('backend.KhungGio.create') }}">Thêm Khung Giờ</a>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -26,7 +26,7 @@ Danh mục Khung Giờ
             <td>{{$KhungGioChucNang->id}}</td>
             <td>{{$KhungGioChucNang->kg_gioBD}}</td>
             <td>{{$KhungGioChucNang->kg_gioKT}}</td>
-            <td>{{$KhungGioChucNang->ngay->N_Ngay}}</td>
+            <td>{{date('d-m-Y', strtotime($KhungGioChucNang->ngay->N_Ngay))}}</td>
             <td class="d-flex justify-content-left">
                 <a class="btn btn-info" href="#">Sửa Khung Giờ</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
