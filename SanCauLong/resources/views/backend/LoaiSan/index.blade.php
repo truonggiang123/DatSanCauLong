@@ -32,7 +32,7 @@ Danh mục Loại Sân
             <td>{{$LoaiSanChucNang->LS_duongcheo}}</td>
             <td>{{$LoaiSanChucNang->LS_mota}}</td>
             <td class="d-flex justify-content-left">
-                <a class="btn btn-info" href="#">Sửa Loại Sân</a>
+                <a class="btn btn-info" href="{{ route('backend.LoaiSan.edit', ['id'=> $LoaiSanChucNang->id] ) }}">Sửa Loại Sân</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
                     <input class="btn btn-info" type="submit" value="Xóa Loại Sân" />
                 </form>

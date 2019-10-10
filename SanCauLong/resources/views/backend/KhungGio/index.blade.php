@@ -28,7 +28,7 @@ Danh mục Khung Giờ
             <td>{{$KhungGioChucNang->kg_gioKT}}</td>
             <td>{{date('d-m-Y', strtotime($KhungGioChucNang->ngay->N_Ngay))}}</td>
             <td class="d-flex justify-content-left">
-                <a class="btn btn-info" href="#">Sửa Khung Giờ</a>
+                <a class="btn btn-info" href="{{ route('backend.KhungGio.edit',['id'=>$KhungGioChucNang->id]) }}">Sửa Khung Giờ</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
                     <input class="btn btn-info" type="submit" value="Xóa Khung Giờ"/>
                 </form>

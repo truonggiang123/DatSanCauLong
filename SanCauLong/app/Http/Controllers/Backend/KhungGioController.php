@@ -70,7 +70,14 @@ class KhungGioController extends Controller
      */
     public function edit($id)
     {
-        //
+        // tìm ra đc dửa liệu tương ứng với id khi người dùng xử lí gửi lên
+        $ngay           = Ngay::all();
+        $khungGioBanDau = KhungGio::find($id);
+        // dd($khungGioBanDau);
+        return view('backend/KhungGio/edit')
+        ->with('khungGio',$khungGioBanDau)
+        ->with('Ngay',$ngay);
+
     }
 
     /**
@@ -82,7 +89,13 @@ class KhungGioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $khungGioBanDau = KhungGio::find($id);
+        $khungGioBanDau->kg_gioBD    = $request->kg_gioBD;
+        $khungGioBanDau->kg_gioKT    = $request->kg_gioKT;
+        $khungGioBanDau->mangay_id   = $request->mangay_id;
+        $khungGioBanDau->save();
+        return redirect()-> route('backend.KhungGio.index');
+
     }
 
     /**

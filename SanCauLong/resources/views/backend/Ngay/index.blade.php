@@ -24,7 +24,8 @@ Danh mục Ngày
             <td>{{$Ngaychucnang->id}}</td>
             <td>{{ date('d-m-Y', strtotime($Ngaychucnang->N_Ngay)) }}</td>
             <td class="d-flex justify-content-left">
-                <a class="btn btn-info" href="#">Sửa Ngày</a>
+                <!-- chức năng sửa với ['id'=> $Ngaychucnang->id] là lấy ra id của ngày tại thời điểm click truyền vào route -->
+                <a class="btn btn-info" href="{{ route('backend.Ngay.edit', ['id'=> $Ngaychucnang->id] ) }}">Sửa Ngày</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
                     <input class="btn btn-info" type="submit" value="Xóa"/>
                 </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Ngay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class NgayController extends Controller
 {
@@ -63,7 +64,9 @@ class NgayController extends Controller
      */
     public function edit($id)
     {
-        //
+        $idNgay = Ngay::find($id);
+        return view('backend/Ngay/edit')
+        ->with('ngayChinhSua',$idNgay);
     }
 
     /**
@@ -75,7 +78,14 @@ class NgayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ngayBanDau = Ngay::find($id);
+        $ngayBanDau->N_Ngay   =  $request->N_Ngay;
+        // save lại các sửa đổi
+        $ngayBanDau->save();
+        // chuyển về trang index
+        return redirect() -> route('backend.Ngay.index');
+    
+
     }
 
     /**

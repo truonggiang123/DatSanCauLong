@@ -68,7 +68,9 @@ class LoaiSanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $loaiSanBanDau  = LoaiSan::find($id);
+        return view('backend/LoaiSan/edit')
+        ->with('LoaiSanSua',$loaiSanBanDau);
     }
 
     /**
@@ -80,7 +82,14 @@ class LoaiSanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $loaisan = LoaiSan::find($id);
+        $loaisan->LS_ten        = $request->LS_ten;
+        $loaisan->LS_chieudai   = $request->LS_chieudai;
+        $loaisan->LS_chieurong  = $request->LS_chieurong;
+        $loaisan->LS_duongcheo  = $request->LS_duongcheo;
+        $loaisan->LS_mota       = $request->LS_mota;
+        $loaisan->save();
+        return redirect()->route('backend.LoaiSan.index');
     }
 
     /**

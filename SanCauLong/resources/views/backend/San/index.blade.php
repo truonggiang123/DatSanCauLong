@@ -42,7 +42,7 @@ Danh mục Sân
                 <img style="width:100px;height:100px" src="{{ asset('storage/uploads/'.$SanChucNang->hinhanhsan) }}" alt="Hình ảnh sân">
             </td>
             <td class="d-flex justify-content-left">
-                <a style="margin-top:35px;" class="btn btn-info" href="#">Sửa</a>
+                <a style="margin-top:35px;" class="btn btn-info" href="{{ route('backend.San.edit', ['id'=>$SanChucNang->id]) }}">Sửa</a>
                 <form style="margin-left:5px;" class="form-inline" action="#" method="post">
                     <input style="margin-top:35px;" class="btn btn-info" type="submit" value="Xóa" />
                 </form>

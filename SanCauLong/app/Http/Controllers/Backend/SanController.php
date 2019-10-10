@@ -7,6 +7,7 @@ use App\KhungGio;
 use App\LoaiSan;
 use App\San;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SanController extends Controller
 {
@@ -81,7 +82,13 @@ class SanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $san = San::find($id);
+        $khunggio = KhungGio::all();
+        $loaisan = LoaiSan::all();
+        return view('backend/San/edit')
+        ->with('San',$san)
+        ->with('KG',$khunggio)
+        ->with('LoaiSan',$loaisan);
     }
 
     /**
@@ -93,7 +100,26 @@ class SanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $san = San::find($id);
+        $san->S_ten             = $request->S_ten;
+        $san->S_tinhtrangsan    = $request->S_tinhtrangsan;
+        $san->mota              = $request->mota;
+        $san->ma_loai_san       = $request->ma_loai_san;
+        $san->ma_KG             = $request->ma_KG;
+        if(!empty($request->hinhanhsan))
+        {
+            $san->hinhanhsan = $request->hinhanhsan;
+        }
+        if($request->hasFile('hinhanhsan'))
+        {
+            Storage::delete('public/uploads/', $san->hinhanhsan);
+            $file = $request->hinhanhsan;
+            $san->hinhanhsan = $file->getClientOriginalName();
+            $fileSaved = $file->storeAs('public/uploads/', $san->hinhanhsan);
+
+        }
+        $san->save();
+        return redirect()->route('backend.San.index');
     }
 
     /**
