@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\KhungGio;
 use App\Ngay;
+use Hamcrest\Core\HasToString;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+
 
 class NgayController extends Controller
 {
@@ -96,6 +99,8 @@ class NgayController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //  Schema::enableForeignKeyConstraints()
+        Ngay::find($id)->delete();
+        return redirect()->route('backend.Ngay.index');
     }
 }

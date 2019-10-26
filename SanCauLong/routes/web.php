@@ -14,7 +14,7 @@
 
 
 use App\Http\Controllers\Backend\NgayController;
-
+use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,6 +32,9 @@ Route::post('admin/ngay/store','Backend\NgayController@store')->name('backend.Ng
 Route::get('admin/ngay/edit/{id}','Backend\NgayController@edit')->name('backend.Ngay.edit');
 // {id} là biến mà view index truyền lên tại thời điểm click vào nút sửa đã định dạng trước
 Route::post('admin/ngay/update/{id}','Backend\NgayController@update')->name('backend.Ngay.update');
+// chức năng xóa 1 ngày với route delete
+Route::delete('admin/ngay/detroys/{id}','Backend\NgayController@destroy')->name('backend.Ngay.destroy');
+
 
 
 // các chức năng thao tác với khung giờ của admin và người quản lí trang web
@@ -42,7 +45,8 @@ Route::post('admin/khunggio/store','Backend\KhungGioController@store')->name('ba
 // sửa 1 khung giờ {id} có sẳn và lưu thay đổi
 Route::get('admin/khunggio/edit/{id}','Backend\KhungGioController@edit')->name('backend.KhungGio.edit');
 Route::post('admin/khunggio/update/{id}','Backend\KhungGioController@update')->name('backend.KhungGio.update');
-
+// chức năng xóa 1 khung giờ với route delete
+Route::delete('admin/khunggio/detroys/{id}','Backend\KhungGioController@destroy')->name('backend.KhungGio.destroy');
 
 // route của chức nắng loại sân người dùng thao tác đến csdl loại sân
 Route::get('admin/loaisan','Backend\LoaiSanController@index')->name('backend.LoaiSan.index');
@@ -52,6 +56,8 @@ Route::post('admin/loaisan/store','Backend\LoaiSanController@store')->name('back
 // sửa 1 loại sân
 Route::get('admin/loaisan/edit/{id}','Backend\LoaiSanController@edit')->name('backend.LoaiSan.edit');
 Route::post('admin/loaisan/update/{id}','Backend\LoaiSanController@update')->name('backend.LoaiSan.update');
+// chức năng xóa 1 loại sân với route delete
+Route::delete('admin/loaisan/detroys/{id}','Backend\LoaiSanController@destroy')->name('backend.LoaiSan.destroy');
 
 
 
@@ -65,6 +71,8 @@ Route::get('admin/san/edit/{id}','Backend\SanController@edit')->name('backend.Sa
 Route::post('admin/san/update/{id}','Backend\SanController@update')->name('backend.San.update');
 
 Route::get('admin/datsan','Backend\DatSanController@index')->name('backend.DatSan.index');
+// chức năng xóa 1 san với route delete
+Route::delete('admin/san/detroys/{id}','Backend\SanController@destroy')->name('backend.San.destroy');
 
 // Chức năng với nhân viên
 Route::get('admin/nhanvien','Backend\NhanVienController@index')->name('backend.NhanVien.index');
@@ -74,4 +82,12 @@ Route::post('admin/nhanvien/store','Backend\NhanVienController@store')->name('ba
 // chức năng sửa thông tin nhân viên
 Route::get('admin/nhanvien/edit/{id}','Backend\NhanVienController@edit')->name('backend.NhanVien.edit');
 Route::post('admin/nhanvien/update/{id}','Backend\NhanVienController@update')->name('backend.NhanVien.update');
+// chức năng xóa 1 ngày với route delete
+Route::delete('admin/Nhanvien/detroys/{id}','Backend\NhanVienController@destroy')->name('backend.NhanVien.destroy');
 
+
+// Route cho chức năng frontend
+
+Route::get('/user/home','Frontend\homeController@index')->name('frontend.user.home');
+
+Route::post('/user/khunggio','Api\ApiController@chonkhunggio')->name('frontend.user.khunggio');

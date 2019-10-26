@@ -29,7 +29,10 @@ Danh mục Khung Giờ
             <td>{{date('d-m-Y', strtotime($KhungGioChucNang->ngay->N_Ngay))}}</td>
             <td class="d-flex justify-content-left">
                 <a class="btn btn-info" href="{{ route('backend.KhungGio.edit',['id'=>$KhungGioChucNang->id]) }}">Sửa Khung Giờ</a>
-                <form style="margin-left:5px;" class="form-inline" action="#" method="post">
+                <form style="margin-left:5px;" class="form-inline" action="{{ route('backend.KhungGio.destroy',['id'=>$KhungGioChucNang->id]) }}" method="post">
+                {{ csrf_field() }}
+                     <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    <input type="hidden" name="_method" value="DELETE" />
                     <input class="btn btn-info" type="submit" value="Xóa Khung Giờ"/>
                 </form>
             </td>

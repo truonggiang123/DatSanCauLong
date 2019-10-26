@@ -130,6 +130,7 @@ class SanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        San::find($id)->delete();
+        return redirect()->route('backend.San.index');
     }
 }

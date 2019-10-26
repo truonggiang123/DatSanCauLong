@@ -53,7 +53,7 @@
                         <a href="{{ route('backend.KhungGio.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Khung Giờ</a>
                         <a href="{{ route('backend.LoaiSan.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Loại Sân</a>
                         <a href="{{ route('backend.San.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Sân</a>
-                        <a href="{{ route('backend.Ngay.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Đặt Sân</a>
+                        <a href="{{ route('backend.DatSan.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Đặt Sân</a>
                         <a href="{{ route('backend.NhanVien.index') }}" class="dropdown-item btn btn-secondary  btn-block" role="button">Nhân Viên</a>
                     </div>
                 </div>

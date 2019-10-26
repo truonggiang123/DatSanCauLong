@@ -43,7 +43,10 @@ Danh mục Sân
             </td>
             <td class="d-flex justify-content-left">
                 <a style="margin-top:35px;" class="btn btn-info" href="{{ route('backend.San.edit', ['id'=>$SanChucNang->id]) }}">Sửa</a>
-                <form style="margin-left:5px;" class="form-inline" action="#" method="post">
+                <form style="margin-left:5px;" class="form-inline" action="{{ route('backend.San.destroy', ['id'=>$SanChucNang->id]) }}" method="post">
+                {{ csrf_field() }}
+                     <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    <input type="hidden" name="_method" value="DELETE" />
                     <input style="margin-top:35px;" class="btn btn-info" type="submit" value="Xóa" />
                 </form>
             </td>

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\KhungGio;
+use App\LoaiSan;
 use App\Ngay;
-use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
-class KhungGioController extends Controller
+class homeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,13 @@ class KhungGioController extends Controller
      */
     public function index()
     {
-        $khunggio = KhungGio::all();
-        return view('backend/KhungGio/index')
-        ->with('KhungGio',$khunggio);
+      $khunggio =  KhungGio::all();
+      $ngay =  Ngay::all();
+      $loaiSan =  LoaiSan::all();
+      return view('frontend/LichDat/searchSan')
+      ->with('khunggio',$khunggio)
+      ->with('ngay',$ngay)
+      ->with('loaisan',$loaiSan);
     }
 
     /**
@@ -29,9 +33,7 @@ class KhungGioController extends Controller
      */
     public function create()
     {
-        $ngay = Ngay::all();
-        return view('backend/KhungGio/create')
-        ->with('Ngay',$ngay);
+        //
     }
 
     /**
@@ -42,13 +44,7 @@ class KhungGioController extends Controller
      */
     public function store(Request $request)
     {
-        $khunggio = new KhungGio();
-        $khunggio->kg_gioBD  = $request->kg_gioBD;
-        $khunggio->kg_gioKT  = $request->kg_gioKT;
-        $khunggio->mangay_id = $request->mangay_id;
-        $khunggio->save();
-        return redirect()->route('backend.KhungGio.index');
-
+        //
     }
 
     /**
@@ -70,14 +66,7 @@ class KhungGioController extends Controller
      */
     public function edit($id)
     {
-        // tìm ra đc dửa liệu tương ứng với id khi người dùng xử lí gửi lên
-        $ngay           = Ngay::all();
-        $khungGioBanDau = KhungGio::find($id);
-        // dd($khungGioBanDau);
-        return view('backend/KhungGio/edit')
-        ->with('khungGio',$khungGioBanDau)
-        ->with('Ngay',$ngay);
-
+        //
     }
 
     /**
@@ -89,13 +78,7 @@ class KhungGioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $khungGioBanDau = KhungGio::find($id);
-        $khungGioBanDau->kg_gioBD    = $request->kg_gioBD;
-        $khungGioBanDau->kg_gioKT    = $request->kg_gioKT;
-        $khungGioBanDau->mangay_id   = $request->mangay_id;
-        $khungGioBanDau->save();
-        return redirect()-> route('backend.KhungGio.index');
-
+        //
     }
 
     /**
@@ -106,7 +89,6 @@ class KhungGioController extends Controller
      */
     public function destroy($id)
     {
-        KhungGio::find($id)->delete();
-        return redirect()->route('backend.KhungGio.index');
+        //
     }
 }

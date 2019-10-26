@@ -124,6 +124,7 @@ class NhanVienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        NhanVien::find($id)->delete();
+        return redirect()->route('backend.NhanVien.index');
     }
 }

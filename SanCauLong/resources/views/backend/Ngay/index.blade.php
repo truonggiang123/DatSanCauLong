@@ -26,7 +26,10 @@ Danh mục Ngày
             <td class="d-flex justify-content-left">
                 <!-- chức năng sửa với ['id'=> $Ngaychucnang->id] là lấy ra id của ngày tại thời điểm click truyền vào route -->
                 <a class="btn btn-info" href="{{ route('backend.Ngay.edit', ['id'=> $Ngaychucnang->id] ) }}">Sửa Ngày</a>
-                <form style="margin-left:5px;" class="form-inline" action="#" method="post">
+                <form style="margin-left:5px;" class="form-inline"  method="post" action="{{ route('backend.Ngay.destroy',['id'=>$Ngaychucnang->id]) }}">
+                {{ csrf_field() }}
+                     <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    <input type="hidden" name="_method" value="DELETE" />
                     <input class="btn btn-info" type="submit" value="Xóa"/>
                 </form>
             </td>

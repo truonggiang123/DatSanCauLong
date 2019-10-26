@@ -33,7 +33,10 @@ Danh mục Nhân Viên
             <td style="vertical-align:middle;"><img class="img-fluid" style="with:100px;height:100px;" src="{{ asset('storage/uploads/'.$nhanVienChucNang->NV_hinhanh)}}" alt="Hình ảnh nhân viên"> </td>
             <td   class="d-flex justify-content-center">
                 <a style="margin-top: 35px;" class="btn btn-info" href="{{ route('backend.NhanVien.edit',['id'=>$nhanVienChucNang->id]) }}">Sửa</a>
-                <form style="margin-left:5px;" class="form-inline" action="#" method="post">
+                <form style="margin-left:5px;" class="form-inline" action="{{ route('backend.NhanVien.destroy',['id'=>$nhanVienChucNang->id]) }}" method="post">
+                {{ csrf_field() }}
+                     <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    <input type="hidden" name="_method" value="DELETE" />
                     <input style="margin-top: 35px;" class="btn btn-info" type="submit" value="Xóa" />
                 </form>
             </td>

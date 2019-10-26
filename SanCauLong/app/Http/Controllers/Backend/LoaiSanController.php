@@ -100,6 +100,7 @@ class LoaiSanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        LoaiSan::find($id)->delete();
+        return redirect()->route('backend.LoaiSan.index');
     }
 }
