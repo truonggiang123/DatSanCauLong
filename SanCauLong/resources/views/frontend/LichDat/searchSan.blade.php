@@ -9,7 +9,7 @@ Vui lòng nhập Thông tin phù hợp
 
 @section('content')
     
-<form action="" method="post">
+<form action="{{ route('frontend.user.timSan') }}" method="post">
 {{ csrf_field() }}
 <!-- ô chọn ngày trong cơ sở dử liệu -->
 <div class="form-group">
@@ -47,20 +47,20 @@ Vui lòng nhập Thông tin phù hợp
 
   <script>
    $(document).ready(function() {
+     // csrf token với post
     $.ajaxSetup({
     beforeSend: function(xhr, type) {
         if (!type.crossDomain) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
         }
     },
-});
+     // chọn khung giờ khi ngày thay đổi
+        });
         $("#sel1").change(function(event){
            ngay = $("#sel1").val();
            $.post("{{ route('frontend.user.khunggio') }}", {"ngay": ngay}, function(data){
            $("#khunggio").html(data);
         });
-        
-        
         });
    });
 </script>

@@ -11,9 +11,9 @@ class San extends Model
     protected $guarded       = ["id"];
     protected $primaryKey    = "id";
     public $timestamps =false;
-    public function chitietds()
+    public function datSan()
     {
-        return $this->hasMany('App\ChitietDS', 'san_id', 'id');
+        return $this->hasOne('App\DatSan', 'masan', 'id');
     }
     public function khunggio()
     {

@@ -26,11 +26,11 @@ Danh mục Đặt Sân
         <tr>
             <td>{{$DatSanChucNang->san->S_ten}}</td>
             <td>{{$DatSanChucNang->san->khunggio->kg_gioBD." ".$DatSanChucNang->san->khunggio->kg_gioKT}}</td>
-            <td>{{$DatSanChucNang->san->khunggio->ngay->N_Ngay}}</td>
-            <td>{{$DatSanChucNang->datsan->DS_hinhthucthanhtoan}}</td>
-            <td>{{$DatSanChucNang->datsan->DS_ten_khach_hang}}</td>
-            <td>{{$DatSanChucNang->datsan->DS_SDT}}</td>
-            <td>{{$DatSanChucNang->datsan->nhanvien->NV_ten}}</td>
+            <td>{{date('d-m-Y', strtotime($DatSanChucNang->san->khunggio->ngay->N_Ngay))}}</td>
+            <td>{{$DatSanChucNang->DS_hinhthucthanhtoan}}</td>
+            <td>{{$DatSanChucNang->DS_ten_khach_hang}}</td>
+            <td>{{$DatSanChucNang->DS_SDT}}</td>
+            <td>{{$DatSanChucNang->nhanvien->NV_ten}}</td>
 
         </tr>
         @endforeach

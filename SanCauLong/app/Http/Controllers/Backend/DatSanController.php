@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\ChitietDS;
+use App\San;
 use App\DatSan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class DatSanController extends Controller
      */
     public function index()
     {
-        $datsan = ChitietDS::all();
+        $datsan = DatSan::all();
         return view('backend/DatSan/index')
         ->with('DatSan',$datsan);
     }
