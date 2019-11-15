@@ -24,6 +24,8 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('backend.layout.master');
 });
+Route::group(['middleware' => 'auth'], function()
+{
 // các chức năng thao tác với ngày của admin và người quản lí
 Route::get('admin/ngay','Backend\NgayController@index')->name('backend.Ngay.index');
 Route::get('admin/ngay/create','Backend\NgayController@create')->name('backend.Ngay.create');
@@ -85,7 +87,7 @@ Route::post('admin/nhanvien/update/{id}','Backend\NhanVienController@update')->n
 // chức năng xóa 1 ngày với route delete
 Route::delete('admin/Nhanvien/detroys/{id}','Backend\NhanVienController@destroy')->name('backend.NhanVien.destroy');
 
-
+});
 // Route cho chức năng frontend
 
 Route::get('/user/home','Frontend\homeController@index')->name('frontend.user.home');
@@ -93,3 +95,6 @@ Route::get('/user/home','Frontend\homeController@index')->name('frontend.user.ho
 Route::post('/user/khunggio','Api\ApiController@chonkhunggio')->name('frontend.user.khunggio');
 
 Route::post('/user/timsan','Frontend\TimSanController@timSan')->name('frontend.user.timSan');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

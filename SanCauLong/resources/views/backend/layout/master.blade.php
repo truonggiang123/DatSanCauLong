@@ -35,9 +35,9 @@
         </ul>
         <!-- chức năng tìm kiếm trên nav -->
 
-        <form class="form-inline  ml-auto" action="/action_page.php">
-            <input class="form-control mr-sm-2" type="text" placeholder="Tìm chức Năng">
-            <button class="btn btn-success" type="submit">Xem</button>
+        <form class="form-inline  ml-auto" method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button class="btn btn-success" type="submit">Đăng xuất</button>
         </form>
     </nav>
 
