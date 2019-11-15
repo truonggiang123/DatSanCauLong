@@ -8,7 +8,7 @@ chức năng thêm Sân
 @endsection
 
 @section('content')
-<form name="scl_nhan_vien" id="scl_nhan_vien" action="{{ route('backend.San.store') }}" method="post" enctype="multipart/form-data">
+<form name="scl_san" id="scl_san" action="{{ route('backend.San.store') }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="S_ten">Tên Sân</label>
@@ -55,4 +55,76 @@ chức năng thêm Sân
 
     <button type="submit" class="btn btn-primary">Hoàn thành thêm</button>
 </form>
+@endsection
+@section('script')
+<script>
+    $(document).ready(function() {
+        $("#scl_san").validate({
+            rules: {
+                S_ten: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                hinhanhsan: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                mota: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                
+            },
+            messages: {
+                S_ten: {
+                    required: "Vui lòng nhập Tên sân",
+                    minlength: "Tên Tên sân phải có ít nhất 2 ký tự",
+                    maxlength: "Tên Tên sân không được vượt quá 50 ký tự"
+                },
+                hinhanhsan: {
+                    required: "Vui lòng nhập hình ảnh sân",
+                    minlength: "Tên hình ảnh sân phải có ít nhất 2 ký tự",
+                    maxlength: "Tên hình ảnh sân không được vượt quá 50 ký tự"
+                },
+                mota: {
+                    required: "Vui lòng nhập mô tả sân",
+                    minlength: "Tên mô tả sân phải có ít nhất 2 ký tự",
+                    maxlength: "Tên mô tả sân không được vượt quá 50 ký tự"
+                },
+               
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Thêm class `invalid-feedback` cho field đang có lỗi
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+                // Thêm icon "Kiểm tra không Hợp lệ"
+                if (!element.next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>")
+                        .insertAfter(element);
+                }
+            },
+            success: function(label, element) {
+                // Thêm icon "Kiểm tra Hợp lệ"
+                if (!$(element).next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>")
+                        .insertAfter($(element));
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endsection

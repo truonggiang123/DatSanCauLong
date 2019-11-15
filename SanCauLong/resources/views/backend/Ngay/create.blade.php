@@ -30,9 +30,9 @@ chức năng thêm ngày
       },
       messages: {
         N_Ngay: {
-          required: "Vui lòng nhập tên Chủ đề",
-          minlength: "Tên Chủ đề phải có ít nhất 3 ký tự",
-          maxlength: "Tên Chủ đề không được vượt quá 50 ký tự"
+          required: "Vui lòng nhập Ngày",
+          minlength: "Tên Ngày phải có ít nhất 3 ký tự",
+          maxlength: "Tên Ngày không được vượt quá 50 ký tự"
         },
       },
       errorElement: "em",
