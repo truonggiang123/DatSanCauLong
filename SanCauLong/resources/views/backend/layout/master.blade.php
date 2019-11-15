@@ -10,6 +10,7 @@
     <script src="{{ asset('vendor/popper/popper.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
 </head>
 
 <body>
@@ -80,10 +81,10 @@
 
 
     </div>
-
-
-
-
+     <!-- validate javascript -->
+   <script src="{{ asset('vendor/jquery_validation/jquery.validate.min.js') }}"></script>
+    <!-- chức năng javascript cho từng trang -->
+    @yield('script')
 </body>
 
 </html>

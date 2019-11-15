@@ -39,7 +39,7 @@ class DatSanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

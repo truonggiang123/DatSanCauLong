@@ -17,7 +17,6 @@ Danh mục Đặt Sân
             <th>Hình thức thanh toán</th>
             <th>Tên khách hàng</th>
             <th>Số điện thoại khách hàng</th>
-            <th>Tên nhân viên quản lí</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +29,6 @@ Danh mục Đặt Sân
             <td>{{$DatSanChucNang->DS_hinhthucthanhtoan}}</td>
             <td>{{$DatSanChucNang->DS_ten_khach_hang}}</td>
             <td>{{$DatSanChucNang->DS_SDT}}</td>
-            <td>{{$DatSanChucNang->nhanvien->NV_ten}}</td>
 
         </tr>
         @endforeach
