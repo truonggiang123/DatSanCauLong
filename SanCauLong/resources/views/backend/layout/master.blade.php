@@ -81,6 +81,8 @@
 
 
     </div>
+    <!-- sweetalert -->
+    <script src="{{ asset('vendor/sweetalert/sweetalert2.all.min.js') }}"></script>
      <!-- validate javascript -->
    <script src="{{ asset('vendor/jquery_validation/jquery.validate.min.js') }}"></script>
     <!-- chức năng javascript cho từng trang -->

@@ -69,7 +69,6 @@ chức năng thêm Sân
                 hinhanhsan: {
                     required: true,
                     minlength: 2,
-                    maxlength: 50
                 },
                 mota: {
                     required: true,
@@ -87,7 +86,6 @@ chức năng thêm Sân
                 hinhanhsan: {
                     required: "Vui lòng nhập hình ảnh sân",
                     minlength: "Tên hình ảnh sân phải có ít nhất 2 ký tự",
-                    maxlength: "Tên hình ảnh sân không được vượt quá 50 ký tự"
                 },
                 mota: {
                     required: "Vui lòng nhập mô tả sân",
