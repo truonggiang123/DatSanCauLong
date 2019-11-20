@@ -95,6 +95,8 @@ Route::get('/user/home','Frontend\homeController@index')->name('frontend.user.ho
 Route::post('/user/khunggio','Api\ApiController@chonkhunggio')->name('frontend.user.khunggio');
 
 Route::post('/user/timsan','Frontend\TimSanController@timSan')->name('frontend.user.timSan');
+
+Route::post('/user/datsan/{id}','Frontend\TimSanController@datSan')->name('frontend.user.datSan');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -41,7 +41,7 @@ Danh Sách Sân tìm được
                 <img style="width:100px;height:100px" src="{{ asset('storage/uploads/'.$SanChucNang->hinhanhsan) }}" alt="Hình ảnh sân">
             </td>
             <td>
-            <form action="" method="post">
+            <form action="{{route('frontend.user.datSan',['id'=>$SanChucNang->id])}}" method="post">
               {{csrf_field()}}
               <input class="btn btn-success" type="submit" value="Đặt Sân này">
             </form>

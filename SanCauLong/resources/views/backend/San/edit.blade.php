@@ -76,6 +76,6 @@ chức năng thêm Sân
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Hoàn thành thêm</button>
+    <button type="submit" class="btn btn-primary">Hoàn thành sửa sân</button>
 </form>
 @endsection

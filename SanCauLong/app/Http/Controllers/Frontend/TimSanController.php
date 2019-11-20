@@ -8,6 +8,8 @@ use DB;
 use App\Ngay;
 use App\KhungGio;
 use App\LoaiSan;
+use App\San;
+
 class TimSanController extends Controller
 {
     
@@ -30,4 +32,11 @@ class TimSanController extends Controller
         ->with('loaisankq',$loaisan);
         }
     }
+    public function datSan(Request $request,$id){
+             $santimduoc = San::find($id);
+             return view('frontend.LichDat.index')
+             ->with('santimduoc',$santimduoc);
+                
+        }
+        
 }
