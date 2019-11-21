@@ -1,10 +1,10 @@
 @extends('backend.layout.master')
 @section('title')
-Thêm Sân
+Sửa sân
 @endsection
 
 @section('Chucnang')
-chức năng thêm Sân
+chức năng sửa sân
 @endsection
 
 @section('content')
@@ -15,6 +15,7 @@ chức năng thêm Sân
         <input value="{{ $San->S_ten }}" name="S_ten" id="S_ten" class="form-control" type="text">
     </div>
     <div class="form-group">
+        <label for="S_tinhtrangsan">Tình trạng sân</label>
         @if($San->S_tinhtrangsan==1)
         <div class="form-check">
             <label class="form-check-label">
@@ -40,10 +41,9 @@ chức năng thêm Sân
         @endif
 
     </div>   
-
+     Hình ảnh sân
     <div class="form-group">
-        <img class="img-fluid" src="{{ asset('storage/uploads/'.$San->hinhanhsan) }}" alt="">
-        <label for="hinhanhsan">Hình ảnh sân</label>
+        <img class="img-fluid" src="{{ asset('storage/uploads/'.$San->hinhanhsan) }}" alt="hình ảnh sân">
         <input name="hinhanhsan" id="hinhanhsan" class="form-control" type="file" placeholder="Vui lòng nhập vào số điện thoại">
     </div>
     <div class="form-group">

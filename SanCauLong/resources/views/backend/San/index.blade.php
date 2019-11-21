@@ -62,13 +62,13 @@ Danh mục Sân
         $('.btn-delete').click(function(e) {
             e.preventDefault();
             Swal.fire({
-                title: 'Bạn có chắc thực hiện thao tác không?',
+                title: 'Bạn có chắc thực hiện xóa?',
                 text: "Khi xóa thành công không thể phục hồi được",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Thực hiện XÓA!'
+                confirmButtonText: 'XÓA!'
             }).then((result) => {
                 if (result.value) {
                     Swal.fire(

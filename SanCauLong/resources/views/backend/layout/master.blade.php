@@ -22,17 +22,7 @@
             <img src="{{ asset('storage/imageFronent/home.png') }}" alt="logo" style="width:40px;">
         </a>
         <!-- Links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-            </li>
-        </ul>
+    
         <!-- chức năng tìm kiếm trên nav -->
 
         <form class="form-inline  ml-auto" method="POST" action="{{ route('logout') }}">
