@@ -15,15 +15,17 @@
 
 use App\Http\Controllers\Backend\NgayController;
 use Illuminate\Support\Facades\DB;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 
-Route::get('/home', function () {
-    return view('backend.layout.master');
-});
+// Route::get('/home', function () {
+//     return view('backend.layout.master');
+// });
 Route::group(['middleware' => 'auth'], function()
 {
 // các chức năng thao tác với ngày của admin và người quản lí
@@ -97,6 +99,9 @@ Route::post('/user/khunggio','Api\ApiController@chonkhunggio')->name('frontend.u
 Route::post('/user/timsan','Frontend\TimSanController@timSan')->name('frontend.user.timSan');
 
 Route::post('/user/datsan/{id}','Frontend\TimSanController@datSan')->name('frontend.user.datSan');
+
+Route::post('/user/datsanhoanthanh','Backend\DatSanController@store')->name('backend.datsan.store');
+Route::get('/user/datsanthanhcong','Frontend\TimSanController@datsanthanhcong')->name('Frontend.user.datsanthanhcong');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

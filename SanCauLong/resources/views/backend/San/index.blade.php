@@ -8,6 +8,7 @@ Danh mục Sân
 @endsection
 
 @section('content')
+<!-- gửi dử liệu vào model DatSan backend để người quản trị có thể xem dử liệu -->
 <a class="btn btn-info" href="{{ route('backend.San.create') }}">Thêm Sân</a>
 <table class="table table-hover table-responsive">
     <thead>

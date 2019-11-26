@@ -39,7 +39,18 @@ class DatSanController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // thêm các thông tin người dùng nhập vào 
+        $datSanNew = new DatSan();
+        $datSanNew->DS_hinhthucthanhtoan   =  $request->hinhthucthanhtoan;
+        $datSanNew->DS_ten_khach_hang      =  $request->DS_ten;
+        $datSanNew->DS_SDT                 =  $request->DS_SDT;
+        $datSanNew->masan                  =  $request->masan;
+        $datSanNew->save();
+        // sửa đổi trạng thái sân được đặt thành 0 là đã được đặt
+        $sanDat = San::find($request->masan);
+        $sanDat->S_tinhtrangsan = 0;
+        $sanDat->save();
+        return redirect()->route('Frontend.user.datsanthanhcong');
     }
 
     /**

@@ -38,5 +38,9 @@ class TimSanController extends Controller
              ->with('santimduoc',$santimduoc);
                 
         }
+    public function datsanthanhcong()
+    {
+            return view('Frontend.LichDat.datsanthanhcong');
+    }
         
 }

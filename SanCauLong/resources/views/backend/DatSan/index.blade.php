@@ -8,6 +8,10 @@ Danh mục Đặt Sân
 @endsection
 
 @section('content')
+<form action="" method="post">
+    {{csrf_field()}}
+    
+</form>
 <table class="table table-hover table-responsive">
     <thead>
         <tr>

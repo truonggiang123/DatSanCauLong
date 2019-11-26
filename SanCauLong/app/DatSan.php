@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatSan extends Model
 {
+    public $timestamps = false;
+
+
     protected $table         = "scl_dat_san";
     protected $fillable      = ['DS_hinhthucthanhtoan', 'DS_ten_khach_hang', 'DS_SDT', 'ma_san', 'nhan_vien_quan_li'];
     protected $guarded       = ["id"];

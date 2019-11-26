@@ -22,7 +22,7 @@ Nhập thông tin khách hàng
 
     </div>
     <div class="col-6">
-<form name="hienthidatsan" id="hienthidatsan" action="" method="post" enctype="multipart/form-data">
+<form name="hienthidatsan" id="hienthidatsan" action="{{ route('backend.datsan.store') }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="DS_ten">Tên</label>
@@ -45,4 +45,66 @@ Nhập thông tin khách hàng
 </form>
 </div>
 </div>
+@endsection
+@section('script-frontend')
+<script>
+    $(document).ready(function() {
+        $("#hienthidatsan").validate({
+            rules: {
+                DS_ten: {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 50
+                },
+                DS_SDT: {
+                    required: true,
+                    minlength: 9,
+                    number:true,
+                    maxlength: 50
+                },
+            },
+            messages: {
+                DS_ten: {
+                    required: "Vui lòng nhập tên của bạn",
+                    minlength: "Tên bạn phải có ít nhất 1 ký tự",
+                    maxlength: "Tên Khung giờ không được vượt quá 50 ký tự"
+                },
+                DS_SDT: {
+                    required: "Vui lòng nhập số điện thoại",
+                    minlength: "Số điện thoại phải có ít nhất 9 ký tự",
+                    number:"Số điện thoại không được chứa chử",
+                    maxlength: "Tên Khung giờ không được vượt quá 50 ký tự"
+                },
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Thêm class `invalid-feedback` cho field đang có lỗi
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+                // Thêm icon "Kiểm tra không Hợp lệ"
+                if (!element.next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>")
+                        .insertAfter(element);
+                }
+            },
+            success: function(label, element) {
+                // Thêm icon "Kiểm tra Hợp lệ"
+                if (!$(element).next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>")
+                        .insertAfter($(element));
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endsection
