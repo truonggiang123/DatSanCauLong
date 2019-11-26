@@ -14,4 +14,5 @@ class ApiController extends Controller
     foreach($khunggiotheongay as $kg)
     echo '<option value="'.$kg->id.'">'.$kg->kg_gioBD.' '.' đến '.' '.$kg->kg_gioKT.'</option>';
     }
+
 }

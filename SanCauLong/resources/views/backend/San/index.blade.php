@@ -9,6 +9,14 @@ Danh mục Sân
 
 @section('content')
 <!-- gửi dử liệu vào model DatSan backend để người quản trị có thể xem dử liệu -->
+<div class="row">
+    <select class="form-control col-9" name="timsan" id="timsan">
+        <option>-Chọn ngày-</option>
+        @foreach($Ngay as $ngay)
+        <option value="{{ date('d-m-Y', strtotime($ngay->N_Ngay)) }}">{{ date('d-m-Y', strtotime($ngay->N_Ngay)) }} </option>
+        @endforeach
+    </select>
+</div></br>
 <a class="btn btn-info" href="{{ route('backend.San.create') }}">Thêm Sân</a>
 <table class="table table-hover table-responsive">
     <thead>
@@ -23,7 +31,7 @@ Danh mục Sân
             <th>Chức Năng</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="thanBang">
         @foreach($San as $SanChucNang)
         <tr>
 
@@ -38,15 +46,15 @@ Danh mục Sân
             </td>
             <td style="vertical-align:middle;">{{$SanChucNang->mota}}</td>
             <td style="vertical-align:middle;">{{$SanChucNang->loaisan->LS_ten}}</td>
-            <td style="vertical-align:middle;">{{$SanChucNang->khunggio->kg_gioBD." ".$SanChucNang->khunggio->kg_gioKT." ".$SanChucNang->khunggio->ngay->N_Ngay}}</td>
+            <td style="vertical-align:middle;">{{$SanChucNang->khunggio->kg_gioBD." ".$SanChucNang->khunggio->kg_gioKT." ". date('d-m-Y', strtotime( $SanChucNang->khunggio->ngay->N_Ngay))}}</td>
             <td style="vertical-align:middle;">
                 <img style="width:100px;height:100px" src="{{ asset('storage/uploads/'.$SanChucNang->hinhanhsan) }}" alt="Hình ảnh sân">
             </td>
             <td class="d-flex justify-content-left">
                 <a style="margin-top:35px;" class="btn btn-info" href="{{ route('backend.San.edit', ['id'=>$SanChucNang->id]) }}">Sửa</a>
                 <form style="margin-left:5px;" class="form-inline" id="formdelete" action="{{ route('backend.San.destroy', ['id'=>$SanChucNang->id]) }}" method="post">
-                {{ csrf_field() }}
-                     <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    {{ csrf_field() }}
+                    <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
                     <input type="hidden" name="_method" value="DELETE" />
                     <input style="margin-top:35px;" class="btn btn-info btn-delete" type="submit" value="Xóa" />
                 </form>
@@ -82,8 +90,15 @@ Danh mục Sân
                 }
             });
         });
+                $("#timsan").on("change", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#thanBang tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
     });
 </script>
+
 @endsection
 
 

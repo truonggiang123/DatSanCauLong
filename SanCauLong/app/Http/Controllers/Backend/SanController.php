@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\KhungGio;
 use App\LoaiSan;
+use App\Ngay;
 use App\San;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,8 +19,10 @@ class SanController extends Controller
      */
     public function index()
     {
-        $san= San::all();
+        $san  = San::all();
+        $ngay = Ngay::all();
         return view('backend/San/index')
+        ->with('Ngay',$ngay)
         ->with('San',$san);
     }
 
