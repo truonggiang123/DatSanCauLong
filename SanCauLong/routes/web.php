@@ -95,7 +95,6 @@ Route::delete('admin/Nhanvien/detroys/{id}','Backend\NhanVienController@destroy'
 Route::get('/user/home','Frontend\homeController@index')->name('frontend.user.home');
 
 Route::post('/user/khunggio','Api\ApiController@chonkhunggio')->name('frontend.user.khunggio');
-Route::post('/user/timsan','Api\ApiController@timsan')->name('frontend.user.timsan');
 
 Route::post('/user/timsan','Frontend\TimSanController@timSan')->name('frontend.user.timSan');
 

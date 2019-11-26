@@ -43,7 +43,7 @@ Vui lòng nhập Thông tin phù hợp
 <input type="submit" class="btn btn-primary" value="Tìm Sân">
 </form>
 @endsection
-@section('script')
+@section('script-frontend')
 
   <script>
    $(document).ready(function() {
