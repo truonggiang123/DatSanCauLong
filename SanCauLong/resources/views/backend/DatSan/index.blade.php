@@ -8,10 +8,10 @@ Danh mục Đặt Sân
 @endsection
 
 @section('content')
-<form action="" method="post">
-    {{csrf_field()}}
-    
-</form>
+<!-- tìm khách hàng đặt tên theo số điện thoại -->
+<div>
+<input class="form-control" name="timsdt" id="timsdt" type="text" placeholder="Nhập vào số điện thoại khách hàng" />
+</div>
 <table class="table table-hover table-responsive">
     <thead>
         <tr>
@@ -23,7 +23,7 @@ Danh mục Đặt Sân
             <th>Số điện thoại khách hàng</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="thanBang">
         @foreach($DatSan as $DatSanChucNang)
         
         <tr>
@@ -39,6 +39,18 @@ Danh mục Đặt Sân
 
     <tbody>
 </table>
+@section('script')
 
+  <script>
+  $(document).ready(function(){
+  $("#timsdt").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#thanBang tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+@endsection
 
 @endsection

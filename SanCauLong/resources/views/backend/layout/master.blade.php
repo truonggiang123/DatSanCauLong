@@ -34,7 +34,7 @@
     <div class="container-fluid" style="margin-top:66px;">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-2 bg-primary" >
+            <div style="min-height:700px" class="col-md-2 bg-primary" >
                 <div class="dropdown d-flex justify-content-center" style="margin-top:30px;">
                     <button type="button" class="btn btn-secondary  dropdown-toggle" style="position:fixed" data-toggle="dropdown">
                         Thông Tin Về Sân
