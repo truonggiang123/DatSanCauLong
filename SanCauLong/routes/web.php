@@ -26,6 +26,7 @@ Route::get('/', function () {
 // Route::get('/home', function () {
 //     return view('backend.layout.master');
 // });
+//chuc nang dang nhap
 Route::group(['middleware' => 'auth'], function()
 {
 // các chức năng thao tác với ngày của admin và người quản lí
@@ -74,7 +75,11 @@ Route::post('admin/san/store','Backend\SanController@store')->name('backend.San.
 Route::get('admin/san/edit/{id}','Backend\SanController@edit')->name('backend.San.edit');
 Route::post('admin/san/update/{id}','Backend\SanController@update')->name('backend.San.update');
 
+
+//chức năng với đặt sân
 Route::get('admin/datsan','Backend\DatSanController@index')->name('backend.DatSan.index');
+Route::delete('admin/datsan/destroy/{id}','Backend\DatSanController@destroy')->name('backend.DatSan.destroy');
+
 // chức năng xóa 1 san với route delete
 Route::delete('admin/san/detroys/{id}','Backend\SanController@destroy')->name('backend.San.destroy');
 

@@ -25,6 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    // sau khi login thanh cong chuyen huong den /admin/datsan
     protected $redirectTo = '/admin/datsan';
 
     /**

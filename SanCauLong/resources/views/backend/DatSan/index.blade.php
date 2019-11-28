@@ -21,6 +21,7 @@ Danh mục Đặt Sân
             <th>Hình thức thanh toán</th>
             <th>Tên khách hàng</th>
             <th>Số điện thoại khách hàng</th>
+            <th>Chức năng</th>
         </tr>
     </thead>
     <tbody id="thanBang">
@@ -33,6 +34,15 @@ Danh mục Đặt Sân
             <td>{{$DatSanChucNang->DS_hinhthucthanhtoan}}</td>
             <td>{{$DatSanChucNang->DS_ten_khach_hang}}</td>
             <td>{{$DatSanChucNang->DS_SDT}}</td>
+            <td class="d-flex justify-content-left">
+                <form style="margin-left:5px;" class="form-inline" id="formdelete" action="{{ route('backend.DatSan.destroy', ['id'=>$DatSanChucNang->id]) }}" method="post">
+                    {{ csrf_field() }}
+                    <!-- gửi 1 input value='DELETE' để route có thể bắt đc delete -->
+                    <input type="hidden" name="masan" value="{{ $DatSanChucNang->san->id }}"/>
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <input style="margin-top:10px;" class="btn btn-info btn-delete" type="submit" value="Đã thanh toán" />
+                </form>
+            </td>
 
         </tr>
         @endforeach

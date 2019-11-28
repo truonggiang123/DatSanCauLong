@@ -93,8 +93,15 @@ class DatSanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        // // xử lí sân trở về trạng thái chưa đặt
+        // $sanID = $request->masan;
+        // $thongtinsan = San::find($sanID);
+        // $thongtinsan->S_tinhtrangsan = 1;
+        // $thongtinsan->save();
+        // xóa đặt sân
+        DatSan::find($id)->delete();
+        return redirect()->route('backend.DatSan.index');
     }
 }
